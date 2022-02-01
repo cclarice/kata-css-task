@@ -321,7 +321,7 @@ button[type=submit] {
     padding: 20px 0;
   }
 }
-@media (max-width: 1024px) {
+@media (max-width: 1023px) {
   main {
     flex-flow: column;
     width: 90vw;
