@@ -32,16 +32,21 @@ body {
 }
 
 body {
-	display:         flex;
-	justify-content: center;
-	align-items:     center;
+	display:         block;
+	overflow-x:      hidden;
+	max-height:      unset;
 }
 
 main {
+	position: relative;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
 	width:						90vw;		// 100 * (1 - 160 / 1600)
 	height:						62.5vw; // 100 * (1000 / 1440) * (1 - 160 / 1600)
 	max-width:		    1440px;
 	max-height:       1000px;
+	min-height:       fit-content;
 	background-color: var(--panel-background);
 	box-shadow:				0 4px 8px #00000011;
 	display: flex;
@@ -53,14 +58,17 @@ main {
 @media (min-aspect-ratio: 4 / 3) { // was 36 / 25
   main {
 		width:	120vh;			// 100 * (1440 / 1000) * (1 - 200 / 1200)
-		height: 83.3333vh;	// 100 * (1 - 200 / 1200)
+		height: 83.33333vh; // 100 * (1 - 200 / 1200)
+		min-height: fit-content;
 	}
 }
 
 aside {
+	background-color: #3587EB;
 	max-width: 58.333%;
-	height: 100%;
 	overflow: hidden;
+	min-height: 100%;
+	max-height: 1000px;
 	&::before {
 		content: '';
 		position: absolute;
@@ -68,7 +76,7 @@ aside {
 		@media (min-aspect-ratio: 4 / 3) {
 			width: 16vh;
 		}
-		height: 400px;
+		height: 240px;
 		background: url('./assets/logo.svg') no-repeat;
 		background-size: contain;
 		transform: translate(50px, 40px);
@@ -80,7 +88,9 @@ aside {
 }
 
 section {
-	padding: 20px;
+	max-height: 1000px;
+	z-index: 1;
+	padding: 20px 30px;
 	max-width: min(575px, calc(100% - 40px));
 	width: 100%;
 	display: flex;
@@ -100,12 +110,15 @@ h4 {
 	color: var(--text2);
 }
 
-.InputBlock {
+.b-menu {
 	display: flex;
 	padding: 40px 10px;
 	width: 100%;
 	gap: 35px;
 	& > * { flex: 1 0 calc(50% - 35px)}
+	& > button > span {
+		margin-right: 18px;
+	}
 }
 
 label {
@@ -124,17 +137,25 @@ button {
 	gap: 20px;
 	padding: 0 10px;
 	justify-content: center;
+	cursor: pointer;
+	transition: .3s;
+}
+button:hover {
+	background-color: #1678DB;
 }
 
 button[name="Facebook"] { background-color: var(--fb) }
 button[name="LinkedIn"] { background-color: var(--in) }
+button[name="Facebook"]:hover { background-color: #457ABB }
+button[name="LinkedIn"]:hover { background-color: #2096D6 }
 
-.Divider {
+.divider {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	gap: 8px;
 	width: 100%;
+	font-size: 12px;
 	&Line {
 		width: 100px;
 		height: 1px;
@@ -178,7 +199,6 @@ form {
 		font-family: 'Roboto', sans-serif;
 		color: black;
 	}
-	input:active,
 	input:focus,
 	input:not(:placeholder-shown) {
 		height: 24px;
@@ -197,7 +217,6 @@ form {
 		font-size: 20px;
 		transition: .2s ease;
 	}
-	input:active ~ span,
 	input:focus ~ span,
 	input:not(:placeholder-shown) ~ span { font-size: 14px }
 }
@@ -249,16 +268,17 @@ form {
 	padding: 12px;
 	box-shadow: 0 0 10px #00000011;
 	border-radius: 8px;
-	font-size: 14px;
+	font-size: 13px;
 	color: #888888;
 	width: fit-content;
+	font-weight: 300;
 }
 
 .checkbox {
 	display: flex;
 	align-items: center;
 	gap: 10px;
-	font-size: 12px;
+	font-size: 13px;
 	padding: 48px 0 60px;
 	span {
 		color: #888888;
@@ -268,9 +288,12 @@ form {
 	}
 	input {
 		appearance: none;
-		width: 12px;
-		height: 12px;
+		min-width: 12px;
+		min-height: 12px;
 		border: 1px solid var(--color4);
+	}
+	input:checked {
+		background-color: var(--button);
 	}
 }
 
@@ -282,4 +305,104 @@ button[type='submit'] {
 	font-weight: 500;
 }
 
+@media (max-width: 1280px) {
+	.b-menu {
+		padding: 20px 10px
+	}
+	.checkbox {
+		padding: 20px 0;
+	}
+}
 
+@media (max-width: 1024px) {
+	main {
+		flex-flow: column;
+		width:  90vw;
+		height: 90vh;
+	}
+	aside {
+		min-height: unset;
+		min-width: 100%;
+		height: unset;
+		flex: 1 0;
+		overflow: hidden;
+		&::before {
+			width: 20vw;
+			min-width: 140px;
+		}
+		img {
+			width: 100%;
+			height: unset;
+			max-height: unset;
+		}
+	}
+	section {
+		height: unset;
+		padding: 40px 20px;
+		flex: 0 0;
+	}
+}
+
+@media (max-width: 640px) {
+	body {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding: 30px 0;
+		max-height: unset;
+		height: unset;
+		&::-webkit-scrollbar {
+			width: 12px;
+		}
+		&::-webkit-scrollbar-thumb {
+			background-color: #CCCCCC;
+			border: 3px transparent solid;
+			border-radius: 12px;
+			background-clip: content-box;
+		}
+	}
+	main {
+		top: 0;
+		left: 0;
+		transform: unset;
+		height: fit-content;
+		max-height: unset;
+	}
+	aside {
+		max-height: 240px;
+	}
+	section {
+		padding: 20px 20px;
+		width: 100%;
+		max-width: unset;
+		max-height: unset;
+		height: fit-content;
+	}
+	.b-menu {
+		padding: 20px 0;
+		flex-flow: column;
+		gap: 10px;
+		button {
+			min-height: 35px;
+		}
+		label {
+			min-height: 45px;
+		}
+	}
+	.radios {
+		display: grid;
+		grid-template-areas: "a b"
+	                       "c d";
+		column-gap: 10px;
+		row-gap: 20px;
+	}
+	h3 {
+		font-size: 18px;
+	}
+	.about {
+		margin: 0;
+	}
+	button[type='submit'] {
+		width: 100%;
+	}
+}
