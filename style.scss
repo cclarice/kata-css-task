@@ -1,14 +1,14 @@
 :root {
-	--background: #EFF6FF;
-	--text:       #2A4A5C;
-	--fb:         #255A9B;
-	--in:         #0076B6;
-	--color0:     #3698FB;
-	--color1:     #7B8A92;
-	--color2:     #96A5B1;
-	--color3:     #AFAFAF;
-	--color4:     #EEEEEE;
-	--color5:     #FFFFFF;
+	--background:				#EFF6FF;
+	--text:      				#2A4A5C;
+	--fb:        				#255A9B;
+	--in:        				#0076B6;
+	--color0:    				#3698FB;
+	--color1:    				#7B8A92;
+	--color2:    				#96A5B1;
+	--color3:    				#AFAFAF;
+	--color4:    				#EEEEEE;
+	--panel-background:	#FFFFFF;
 }
 
 * {
@@ -27,23 +27,56 @@ body {
 }
 
 body {
-	display:				  flex;
-	justify-content:  center;
-	align-items:		 	center;
-	overflow:					hidden;
-	padding:          100px 80px;
+	display:         flex;
+	justify-content: center;
+	align-items:     center;
+}
+
+main {
+	width:						88.88888vw; // 100 * (1 - 160 / 1440)
+	height:						61.72839vw;  // 100 * (1000 / 1440) * (1 - 160 / 1440)
+	background-color: gray;
+}
+
+@media (aspect-ratio: 36 / 25) {
+  main {
+		background-color: red;
+	}
+}
+
+/*
+body {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 50px 72px; // 25px 36px; // 50px 72px; // 100px 144px
 }
 
 main {
 	display: flex;
-	max-width: 1440px;
-	max-height: 1000px;
+	width: 100%;
+	padding-bottom: 69.44444%;
+	background-color: #00FF0088;
+}
+
+@media (min-aspect-ratio: 36 / 25) {
+	body {
+		background: purple;
+	}
+	main {
+		padding-bottom: unset;
+		max-width: calc((100vh) * 1.44);
+		height: 100%;
+	}
 }
 
 aside {
-	display:				  flex;
-	align-items:	   	center;
-	justify-content: 	center;
-	max-width:			 	760px;
-	overflow:			   	hidden;
+	position: absolute;
+	background-color: #FF000088;
 }
+
+section {
+	position: absolute;
+	background-color: #0000FF88;
+}
+*/
