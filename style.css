@@ -1,9 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@400;500&family=Roboto:wght@400;500&display=swap");
 :root {
   --background:	#EFF6FF;
   --text:	#2A4A5C;
+  --text2: #68757E;
   --fb:	#255A9B;
   --in:	#0076B6;
-  --color0:	#3698FB;
+  --button:	#3698FB;
   --color1:	#7B8A92;
   --color2:	#96A5B1;
   --color3:	#AFAFAF;
@@ -12,9 +14,11 @@
 }
 
 * {
+  font-family: "Barlow", sans-serif;
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  color: var(--text);
 }
 
 html,
@@ -33,51 +37,52 @@ body {
 }
 
 main {
-  width: 88.88888vw;
-  height: 61.72839vw;
-  background-color: gray;
+  width: 90vw;
+  height: 62.5vw;
+  max-width: 1440px;
+  max-height: 1000px;
+  background-color: var(--panel-background);
+  box-shadow: 0 4px 8px #00000011;
+  display: grid;
+  grid-template-columns: 52.778% 47.222%;
 }
 
-@media (aspect-ratio: 36/25) {
+@media (min-aspect-ratio: 4/3) {
   main {
-    background-color: red;
+    width: 120vh;
+    height: 83.3333vh;
   }
 }
-/*
-body {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	padding: 50px 72px; // 25px 36px; // 50px 72px; // 100px 144px
-}
-
-main {
-	display: flex;
-	width: 100%;
-	padding-bottom: 69.44444%;
-	background-color: #00FF0088;
-}
-
-@media (min-aspect-ratio: 36 / 25) {
-	body {
-		background: purple;
-	}
-	main {
-		padding-bottom: unset;
-		max-width: calc((100vh) * 1.44);
-		height: 100%;
-	}
-}
-
 aside {
-	position: absolute;
-	background-color: #FF000088;
+  width: 100%;
+  height: 100%;
+}
+aside img {
+  max-width: 100%;
+  max-height: 100%;
 }
 
 section {
-	position: absolute;
-	background-color: #0000FF88;
+  display: flex;
+  flex-flow: column;
+  padding: 100px 70px;
 }
-*/
+
+h2 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+}
+
+h4 {
+  font-weight: 500;
+  color: var(--text2);
+}
+
+button {
+  appearance: none;
+  border: none;
+  background-color: var(--button);
+  color: #FFFFFF;
+}
 
 /*# sourceMappingURL=style.css.map */
