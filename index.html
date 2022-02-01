@@ -17,7 +17,7 @@
 	<section>
 		<h2>Get iintoo it today</h2>
 		<h4>There is no charge or obligation upon registration</h4>
-		<div class="Redirect">
+		<div class="InputBlock">
 			<button name="Facebook">
 				<img src="./assets/facebook.svg" alt="Facebook button image" width="18">
 				<span>
@@ -36,6 +36,59 @@
 			<span> OR </span>
 			<div class="DividerLine"></div>
 		</div>
+		<form>
+			<div class="InputBlock">
+				<label class="LabelInputText">
+					<input name="email" placeholder=" ">
+					<span>Email</span>
+				</label>
+				<label class="LabelInputText">
+					<input name="phone" placeholder=" ">
+					<span>Phone</span>
+				</label>
+			</div>
+			<h3>What type of investor are you?</h3>
+			<p>Select the type of investor you are below.</p>
+			<div class="radios">
+				<label>
+					<input type="radio" name="investorType" id="Individual" checked>
+					<span>Individual</span>
+					<div>i</div>
+				</label>
+				<label>
+					<input type="radio" name="investorType" id="Business">
+					<span>Business</span>
+					<div>i</div>
+				</label>
+				<label>
+					<input type="radio" name="investorType" id="IRA">
+					<span>IRA</span>
+					<div>i</div>
+				</label>
+				<label>
+					<input type="radio" name="investorType" id="Trust">
+					<span>Trust</span>
+					<div>i</div>
+				</label>
+			</div>
+			<div class="about">
+				I am a natural person investing on my<br>
+				own behalf as a sole owner, joint tenant,<br>
+				or tenant in common.
+			</div>
+			<label class="checkbox">
+				<input type="checkbox" name="terms">
+				<span>
+					I agree to the terms and receiving notifications from iintoo
+					<a href="https://google.com">
+						View full terms
+					</a>
+				</span>
+			</label>
+			<button type="submit">
+				Create Account
+			</button>
+		</form>
 		<!--<form>
 			<label>
 				<input name="email">
@@ -63,18 +116,6 @@
 					<span>Trust</span>
 				</label>
 			</div>
-			<label>
-				<span>
-					I agree to the terms and receiving notifications from iintoo
-					<a>
-						View full terms
-					</a>
-				</span>
-				<input type="checkbox" name="terms">
-			</label>
-			<button type="submit">
-				Create Account
-			</button>
 		</form>-->
 	</section>
 </main>

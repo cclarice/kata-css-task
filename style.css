@@ -9,7 +9,7 @@
   --color1:	#7B8A92;
   --color2:	#96A5B1;
   --color3:	#AFAFAF;
-  --color4:	#EEEEEE;
+  --color4:	#E6E6E6;
   --panel-background:	#FFFFFF;
 }
 
@@ -57,6 +57,20 @@ aside {
   height: 100%;
   overflow: hidden;
 }
+aside::before {
+  content: "";
+  position: absolute;
+  width: 12vw;
+  height: 400px;
+  background: url("./assets/logo.svg") no-repeat;
+  background-size: contain;
+  transform: translate(50px, 40px);
+}
+@media (min-aspect-ratio: 4/3) {
+  aside::before {
+    width: 16vh;
+  }
+}
 aside img {
   min-height: 100%;
   max-height: 100%;
@@ -64,7 +78,7 @@ aside img {
 
 section {
   padding: 20px;
-  max-width: min(535px, 100% - 40px);
+  max-width: min(575px, 100% - 40px);
   width: 100%;
   display: flex;
   flex-flow: column;
@@ -83,13 +97,18 @@ h4 {
   color: var(--text2);
 }
 
-.Redirect {
+.InputBlock {
   display: flex;
   padding: 40px 10px;
+  width: 100%;
   gap: 35px;
 }
-.Redirect > * {
-  flex: 1 1;
+.InputBlock > * {
+  flex: 1 0 calc(50% - 35px);
+}
+
+label {
+  cursor: pointer;
 }
 
 button {
@@ -127,6 +146,141 @@ button[name=LinkedIn] {
   width: 100px;
   height: 1px;
   background-color: #E5E5E5;
+}
+
+form {
+  display: flex;
+  flex-flow: column;
+}
+form h3 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+form p {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text2);
+}
+
+.LabelInputText {
+  border: 1px solid var(--color4);
+  display: flex;
+  flex-flow: column;
+  height: 57px;
+  justify-content: center;
+  padding: 0 10px;
+  overflow: hidden;
+}
+.LabelInputText:active, .LabelInputText:focus, .LabelInputText:target, .LabelInputText:focus-within {
+  border-left: var(--button) 1px solid;
+}
+.LabelInputText input {
+  appearance: none;
+  border: none;
+  outline: none;
+  height: 0;
+  max-width: 100%;
+  font-size: 0;
+  font-family: "Roboto", sans-serif;
+  color: black;
+}
+.LabelInputText input:active,
+.LabelInputText input:focus,
+.LabelInputText input:not(:placeholder-shown) {
+  height: 24px;
+  transition: 0.2s ease;
+  font-size: 14px;
+}
+.LabelInputText span {
+  order: -1;
+  font-size: 20px;
+  transition: 0.2s ease;
+}
+.LabelInputText input:active ~ span,
+.LabelInputText input:focus ~ span,
+.LabelInputText input:not(:placeholder-shown) ~ span {
+  font-size: 14px;
+}
+
+.radios {
+  padding: 40px 4px 25px;
+  display: flex;
+  gap: 40px;
+}
+.radios label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.radios label input[type=radio] {
+  appearance: none;
+  width: 17px;
+  height: 17px;
+  border: 2px solid var(--color4);
+  transition: 0.2s ease-in-out;
+  border-radius: 8px;
+  margin-right: 6px;
+}
+.radios label input:checked {
+  border: 4px solid var(--button);
+}
+.radios label span {
+  font-family: "Roboto", sans-serif;
+  color: #444444;
+  font-size: 14px;
+  line-height: 1;
+  font-weight: 500;
+  max-height: 12px;
+}
+.radios label div {
+  text-align: center;
+  width: 10px;
+  height: 10px;
+  font-size: 8px;
+  line-height: 1;
+  border: 1px solid #CCCCCC;
+  color: #CCCCCC;
+  border-radius: 5px;
+  margin-bottom: -1px;
+}
+
+.about {
+  margin: 0 8px;
+  padding: 12px;
+  box-shadow: 0 0 10px #00000011;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #888888;
+  width: fit-content;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  padding: 48px 0 60px;
+}
+.checkbox span {
+  color: #888888;
+}
+.checkbox span a {
+  color: var(--button);
+}
+.checkbox input {
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  border: 1px solid var(--color4);
+}
+
+button[type=submit] {
+  width: calc((100% - 35px) / 2);
+  border-radius: 4px;
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
 }
 
 /*# sourceMappingURL=style.css.map */
