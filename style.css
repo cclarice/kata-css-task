@@ -258,7 +258,7 @@ form p {
   font-size: 14px;
   color: #444444;
 }
-.radios label div {
+.radios label small {
   text-align: center;
   width: 10px;
   height: 10px;
