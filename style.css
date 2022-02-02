@@ -100,6 +100,7 @@ section {
 h2 {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
+  margin-bottom: 8px;
 }
 
 h4 {
@@ -312,6 +313,35 @@ button[type=submit] {
   font-weight: 500;
 }
 
+@media (max-height: 960px) {
+  .b-menu {
+    padding: 25px 10px;
+  }
+
+  .checkbox {
+    padding: 32px 0 40px;
+  }
+
+  .radios {
+    padding: 25px 4px 15px;
+  }
+}
+@media (max-height: 780px) {
+  main {
+    height: 680px;
+    top: 20px;
+    transform: translate(-50%);
+    min-width: 540px;
+  }
+
+  body {
+    max-height: unset;
+  }
+
+  section {
+    min-width: 540px;
+  }
+}
 @media (max-width: 1280px) {
   .b-menu {
     padding: 20px 10px;
