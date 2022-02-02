@@ -313,35 +313,6 @@ button[type=submit] {
   font-weight: 500;
 }
 
-@media (max-height: 960px) {
-  .b-menu {
-    padding: 25px 10px;
-  }
-
-  .checkbox {
-    padding: 32px 0 40px;
-  }
-
-  .radios {
-    padding: 25px 4px 15px;
-  }
-}
-@media (max-height: 780px) {
-  main {
-    height: 680px;
-    top: 20px;
-    transform: translate(-50%);
-    min-width: 540px;
-  }
-
-  body {
-    max-height: unset;
-  }
-
-  section {
-    min-width: 540px;
-  }
-}
 @media (max-width: 1280px) {
   .b-menu {
     padding: 20px 10px;
@@ -381,6 +352,35 @@ button[type=submit] {
     flex: 0 0;
   }
 }
+@media (max-height: 960px) {
+  .b-menu {
+    padding: 25px 10px;
+  }
+
+  .checkbox {
+    padding: 32px 0 40px;
+  }
+
+  .radios {
+    padding: 25px 4px 15px;
+  }
+}
+@media (max-height: 780px) {
+  main {
+    height: 680px;
+    top: 20px;
+    transform: translate(-50%);
+    min-width: 540px;
+  }
+
+  body {
+    max-height: unset;
+  }
+
+  section {
+    min-width: 540px;
+  }
+}
 @media (max-width: 640px) {
   body {
     max-height: unset;
@@ -406,6 +406,7 @@ button[type=submit] {
     left: unset;
     height: fit-content;
     max-height: unset;
+    min-width: unset;
   }
 
   aside {
@@ -415,6 +416,7 @@ button[type=submit] {
   section {
     max-width: unset;
     max-height: unset;
+    min-width: unset;
     width: 100%;
     height: fit-content;
     padding: 20px 20px;
